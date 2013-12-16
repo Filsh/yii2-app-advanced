@@ -76,3 +76,71 @@ Now you should be able to access:
 - the frontend using the URL `http://localhost/advanced/frontend/web/`
 - the backend using the URL `http://localhost/advanced/backend/web/`
 - the REST API using the URL `http://localhost/advanced/rest/v1.0/`
+
+NGINX CONFIGURATION
+-------------------------------
+
+~~~
+server {
+	set $path_host "/var/www/yii2-app-platform/frontend/web";
+	set $path_index "index.php";
+
+	server_name www.platform.dev;
+	root $path_host;
+	index $path_index;
+
+	listen   80;
+	charset utf-8;
+	client_max_body_size 128M;
+
+	error_page 500 502 503 504 /50x.html;
+
+	location = /50x.html {
+		root /usr/share/nginx/www;
+	}
+
+	location / {
+		try_files $uri $uri/ /$path_index?$query_string;
+	}
+
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_index $path_index;
+		fastcgi_pass php-fpm;
+		
+		fastcgi_connect_timeout 30s;
+		fastcgi_read_timeout 30s;
+		fastcgi_send_timeout 60s;
+		fastcgi_ignore_client_abort on;
+		fastcgi_pass_header "X-Accel-Expires";
+
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		fastcgi_param  PATH_INFO        $fastcgi_path_info;
+		fastcgi_param  HTTP_REFERER     $http_referer;
+		include fastcgi_params;
+	}
+
+	location ~* \.(js|css|less|png|jpg|jpeg|gif|ico|woff|ttf|svg|tpl)$ {
+		expires 24h;
+		access_log off;
+	}
+
+	location = /favicon.ico {
+		log_not_found off;
+		access_log off;
+	}
+
+	location = /robots.txt {
+		log_not_found off;
+		access_log off;
+	}
+
+	location ~ /\. {
+		deny all;
+		access_log off;
+		log_not_found off;
+	}
+}
+~~~
+
+When using this configuration, you should set `cgi.fix_pathinfo=0` in the `php.ini` file in order to avoid many unnecessary system `stat()` calls.
