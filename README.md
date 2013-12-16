@@ -1,14 +1,5 @@
-Yii 2 Advanced Application Template
+Yii 2 Platform Application Template
 ===================================
-
-Yii 2 Advanced Application Template is a skeleton Yii 2 application best for
-developing complex Web applications with multiple tiers.
-
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
 
 
 DIRECTORY STRUCTURE
@@ -40,6 +31,10 @@ frontend
 	runtime/            contains files generated during runtime
 	views/              contains view files for the Web application
 	web/                contains the entry script and Web resources
+rest
+	config/             contains REST API configurations
+	controllers/        contains REST API controller classes
+	runtime/            contains files generated during runtime
 vendor/                 contains dependent 3rd-party packages
 environments/                contains environment-based overrides
 ```
@@ -54,14 +49,6 @@ The minimum requirement by this application template that your Web server suppor
 INSTALLATION
 ------------
 
-### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `advanced` that is directly under the Web root.
-
-Then follow the instructions given in "GETTING STARTED".
-
-
 ### Install via Composer
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
@@ -70,7 +57,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 You can then install the application using the following command:
 
 ~~~
-php composer.phar create-project --stability=dev yiisoft/yii2-app-advanced advanced
+php composer.phar create-project --stability=dev filsh/yii2-app-platform platform
 ~~~
 
 
@@ -88,3 +75,4 @@ Now you should be able to access:
 
 - the frontend using the URL `http://localhost/advanced/frontend/web/`
 - the backend using the URL `http://localhost/advanced/backend/web/`
+- the REST API using the URL `http://localhost/advanced/rest/v1.0/`
