@@ -57,7 +57,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 You can then install the application using the following command:
 
 ~~~
-php composer.phar create-project --stability=dev filsh/yii2-app-platform platform
+php composer.phar create-project --stability=dev filsh/yii2-app-platform app-platform
 ~~~
 
 
