@@ -16,7 +16,7 @@
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-debug": "*",
 		"yiisoft/yii2-gii": "*",
-		"filsh/yii2-platform": "*",
+		"filsh/yii2-platform": "*"
 	},
 	"scripts": {
 		"post-create-project-cmd": [
