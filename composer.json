@@ -1,16 +1,12 @@
 {
-	"name": "yiisoft/yii2-app-advanced",
-	"description": "Yii 2 Advanced Application Template",
-	"keywords": ["yii", "framework", "advanced", "application template"],
-	"homepage": "http://www.yiiframework.com/",
+	"name": "filsh/yii2-app-platform",
+	"description": "Yii 2 Platform Application Template",
+	"keywords": ["yii", "framework", "platform", "application template"],
 	"type": "project",
 	"license": "BSD-3-Clause",
 	"support": {
-		"issues": "https://github.com/yiisoft/yii2/issues?state=open",
-		"forum": "http://www.yiiframework.com/forum/",
-		"wiki": "http://www.yiiframework.com/wiki/",
-		"irc": "irc://irc.freenode.net/yii",
-		"source": "https://github.com/yiisoft/yii2"
+		"email": "imaliy.filsh@gmail.com",
+		"source": "https://github.com/filsh/yii2-app-platform"
 	},
 	"minimum-stability": "dev",
 	"require": {
@@ -19,7 +15,8 @@
 		"yiisoft/yii2-swiftmailer": "*",
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-debug": "*",
-		"yiisoft/yii2-gii": "*"
+		"yiisoft/yii2-gii": "*",
+		"filsh/yii2-platform": "*",
 	},
 	"scripts": {
 		"post-create-project-cmd": [
@@ -34,6 +31,8 @@
 			"console/runtime",
 			"console/migrations",
 
+			"rest/runtime",
+			
 			"frontend/runtime",
 			"frontend/web/assets"
 		]
