@@ -18,6 +18,7 @@ return [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
         'mail' => $params['components.mail'],
+        'urlManager' => $params['components.urlManager'],
         'user' => [
             'identityClass' => 'common\models\User',
         ],
