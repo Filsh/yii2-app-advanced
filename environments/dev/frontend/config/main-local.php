@@ -4,8 +4,8 @@ return [
         //'debug',
     ],
     'modules' => [
-//          'debug' => [
-//              'class' => 'yii\debug\Module',
-//          ],
+//        'debug' => [
+//            'class' => 'yii\debug\Module',
+//        ],
     ],
 ];

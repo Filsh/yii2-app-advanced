@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\platform\Platform;
+
 use yii\web\Controller;
 use common\models\LoginForm;
 use frontend\models\ContactForm;
@@ -49,6 +51,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        var_dump(Platform::$app->getGeoLocator());exit;
         return $this->render('index');
     }
 
